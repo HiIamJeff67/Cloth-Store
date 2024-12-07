@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<title>會醉坊</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<head>
+    <style>
+        * {
+            font-family: Microsoft JhengHei;
+        }
+
+        button {
+            margin: 5px;
+            background: #df5334;
+        }
+
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content {
+            height: 643px;
+        }
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        .y {
+            background-color: pink;
+            color: black;
+            margin-bottom: 0;
+            padding: 20px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bolder;
+        }
+
+        .y:hover {
+            background-color: rgb(143, 240, 124);
+            color: white;
+        }
+        .word{
+            position: absolute;
+            left: 700px;top: 100px;
+            font-size:20px;
+            font-weight:bolder;
+        }
+
+        .home_img {
+            height: 150px;
+            width: 150px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        body {
+            height: 150px;
+            width: 100%;
+            position: absolute;
+        }
+
+        .container-fluid,
+        .row-fluid { height: inherit; }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+        function show_vodka(){
+            //document.getElementById("basicdrink").style.display = "none";
+            document.getElementById("introduce").innerHTML = "<img src='vodka.png'style='width: 550px;height: 500px;position: absolute;left: 200px;top: 150px;'>";
+            document.getElementById("introduce").innerHTML +="<span class='word' style='top: 170px;'>酒液透明無色，又稱作「鑽石酒」，酒精含量介於35%~50%之間，釀造原料最常見的是馬鈴薯、黑麥或小麥，經過蒸餾後反覆精煉而成，在製作過程中，過濾的次數越多，品質越上乘，市面上品質較佳的伏特加至少都經過三次以上的蒸餾，再用活性炭過濾。</span>";
+        }
+        function show_rum(){
+            //document.getElementById("basicdrink").style.display = "none";
+            document.getElementById("introduce").innerHTML = "<img src='rum.jpg'style='width: 550px;height: 500px;position: absolute;left: 200px;top: 150px;'>";
+            document.getElementById("introduce").innerHTML +="<span class='word' style='top: 170px;'>蘭姆酒又名「糖酒」，帶有醇厚的甜膩果香或甘蔗焦香，非常適合調製具有熱帶風情的水果類調酒，主要產地也多在為牙買加、古巴、墨西哥、巴西等熱帶地區。</span>";
+
+        }
+        function show_gin(){
+            //document.getElementById("basicdrink").style.display = "none";
+            document.getElementById("introduce").innerHTML = "<img src='gin.png'style='width: 550px;height: 500px;position: absolute;left: 200px;top: 150px;'>"
+            document.getElementById("introduce").innerHTML +="<span class='word' style='top: 170px;'>琴酒是由穀物發酵，並增添多種香料蒸餾製成，由於主要調味香料為杜松子，故又名為「杜松子酒」，但並非所有的琴酒都是以杜松子作為主調味。</span>";
+
+        }
+        function show_tequila(){
+            //document.getElementById("basicdrink").style.display = "none";
+            document.getElementById("introduce").innerHTML = "<img src='tequila.jpg'style='width: 550px;height: 500px;position: absolute;left: 200px;top: 150px;'>"
+            document.getElementById("introduce").innerHTML +="<span class='word' style='top: 170px;'>以其原料為名，龍舌蘭是原產自墨西哥的植物，莖部富含水分及糖分，故被用來發酵釀酒，也因為它獨特的植物香氣，適合調配成口感濃厚的調酒，或以「shot」的方式飲用，先抿一口鹽巴，將龍舌蘭酒一飲而盡後，再含食檸檬片，別有風味。</span>";
+
+        }
+        function show_whiskey(){
+            //document.getElementById("basicdrink").style.display = "none";
+            document.getElementById("introduce").innerHTML = "<img src='whiskey.jpg'style='width: 550px;height: 500px;position: absolute;left: 200px;top: 150px;'>"
+            document.getElementById("introduce").innerHTML +="<span class='word' style='top: 170px;'>威士忌一詞源自蘇格蘭語，是指「生命之水」，是所有以穀物為原料，並經過「陳年」工序（在橡木桶中成熟）所製造出來的蒸餾酒之通稱，口感獨特鮮明，容易與其他副材料衝突，因此以威士忌為基酒的調酒並不多，主要還是以純飲為主。</span>";
+
+        }
+        function show_brandy(){
+            //document.getElementById("basicdrink").style.display = "none";
+            document.getElementById("introduce").innerHTML = "<img src='brandy.jpg'style='width: 550px;height: 500px;position: absolute;left: 200px;top: 110px;'>"
+            document.getElementById("introduce").innerHTML +="<span class='word' style='top: 170px;'>白蘭地一詞源自荷蘭文，意思是「可燃燒的酒」，大多以葡萄釀造而成，但只要是以果酒為基底再蒸餾製成的酒都可以稱為白蘭地，酒液帶有甜甜的水果香氣，又被稱為「葡萄酒的靈魂」，本是無色，在橡木桶貯藏過程中會逐漸浸染成褐色。</span>";
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid" style="background-color: pink;">
+        <h1 style="font-size: 45px;"><strong><span style="left: 50%;position: relative;">會醉坊</span></strong></h1>
+        <img src="logo.jpg" class="home_img" style="z-index: 1;">
+    </div>
+    <!--左邊目錄選單-->
+    <div class="container-fluid">
+        <div class="row content">
+            <div class="col-sm-2" style="position:relative;padding:0;height:100%;width: 150px;background-color:pink;">
+                <ul class="nav sidenav-nav">
+                    <li class="dropdown">
+                        <a href="home.html" style="padding:0;">
+                            <p class="y">首頁</p>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="drink.php" style="padding:0;">
+                            <p class="y">酒類資訊</p>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="drink_recipe.php" style="padding:0;">
+                            <p class="y">酒譜資訊</p>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="basicdrink.html" style="padding:0;">
+                            <p class="y">六大基酒</p>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="store.php" style="padding:0;">
+                            <p class="y">店家</p>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="supply.php" style="padding:0;">
+                            <p class="y">廠商</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!--此畫面主內容-->
+            <div class="col-sm-10">
+                <br/>
+                <h1>六大基酒</h1>
+                <img src="vodka.png" class = "vodka_img" style="width:100px;height:100px;position:absolute;left:170px;top:10px;" onclick="show_vodka()">
+                <img src="rum.jpg" class = "rum_img" style="width: 100px;height: 100px;position:absolute;left:270px;top:10px;" onclick="show_rum()">
+                <img src="gin.png" class = "gin_img" style="width: 100px;height: 100px;position:absolute;left:370px;top:10px;" onclick="show_gin()">
+                <img src="tequila.jpg" class = "tequila_img" style="width: 100px;height: 100px;position:absolute;left:470px;top:10px;" onclick="show_tequila()">
+                <img src="whiskey.jpg" class = "whiskey_img" style="width: 100px;height: 100px;position:absolute;left:570px;top:10px;" onclick="show_whiskey()">
+                <img src="brandy.jpg" class = "brandy_img" style="width: 100px;height: 100px;position:absolute;left:670px;top:10px;" onclick="show_brandy()">
+                
+                <div id = "introduce">
+                    <img src="BasicDrink.jpg" style="width: 550px;height: 500px;position: absolute;left: 200px;top: 130px;" id="basicdrink">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--
+            <footer class="container-fluid text-center"></footer>
+        -->
+</body>
+
+</html>
