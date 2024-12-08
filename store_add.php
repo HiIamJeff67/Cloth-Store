@@ -5,7 +5,7 @@
     }
     $stName         = $_POST["name"];
     $stPhone        = $_POST["phone_number"];
-    $stWorkTime     = $_POST["work_ime"];
+    $stWorkTime     = $_POST["work_time"];
     $stAddress      = $_POST["address"];
 
     $query = ("Insert into store values(?,?,?,?)");
