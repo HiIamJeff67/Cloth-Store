@@ -192,9 +192,9 @@
                     echo "<table border='1'>";
                     while ($result = mysqli_fetch_object($stmt)) {
                         echo "<tr>";
-                        echo "<td>$result->spName</td>";
-                        echo "<td>$result->spPhone</td>";
-                        echo "<td>$result->spAddress</td>";
+                        echo "<td>$result->name</td>";
+                        echo "<td>$result->phone_number</td>";
+                        echo "<td>$result->address</td>";
                         echo "</tr>";
                     }
                     echo "</table>";

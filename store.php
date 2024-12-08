@@ -270,10 +270,10 @@
                         echo "<table border = '1'>";
                         while($result=mysqli_fetch_object($stmt)){
                             echo "<tr>";
-                            echo "<td>$result->stName</td>";
-                            echo "<td>$result->stPhone</td>";
-                            echo "<td>$result->stWorkTime</td>";
-                            echo "<td>$result->stAddress</td>";
+                            echo "<td>$result->name</td>";
+                            echo "<td>$result->phone_number</td>";
+                            echo "<td>$result->work_time</td>";
+                            echo "<td>$result->address</td>";
                             echo "</tr>";
                         }
                         echo "</table>";

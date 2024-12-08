@@ -1,9 +1,9 @@
 <?php
     include "db_conn.php";
-    $spName = $_GET["spName"];
+    $name = $_GET["name"];
 
-    $stmt = $db->prepare("DELETE FROM supplier WHERE spName=?");
-    $stmt->bind_param("s",$spName);
+    $stmt = $db->prepare("DELETE FROM supplier WHERE name=?");
+    $stmt->bind_param("s",$name);
     $stmt->execute();
     
 

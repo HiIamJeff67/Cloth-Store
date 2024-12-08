@@ -189,11 +189,11 @@
                     echo "<table border='1'>";
                     while ($result = mysqli_fetch_object($stmt)) {
                         echo "<tr>";
-                        echo "<td>$result->spName</td>";
-                        echo "<td>$result->spPhone</td>";
-                        echo "<td>$result->spAddress</td>";
-                        echo '<td align="center"><form method="POST" action="supply_del.php?spName=' . $result->spName . '"><input type="submit" value="刪除"></form></td>';
-                        echo '<td align="center"><form method="POST" action="supply_mdy.php?spName=' . $result->spName . '"><input type="submit" value="修改"></form></td>';
+                        echo "<td>$result->name</td>";
+                        echo "<td>$result->phone_number</td>";
+                        echo "<td>$result->address</td>";
+                        echo '<td align="center"><form method="POST" action="supply_del.php?name=' . $result->name . '"><input type="submit" value="刪除"></form></td>';
+                        echo '<td align="center"><form method="POST" action="supply_mdy.php?name=' . $result->name . '"><input type="submit" value="修改"></form></td>';
                         echo "</tr>";
                     }
                     echo "</table>";
@@ -201,11 +201,11 @@
                 ?>
                 <form action="supply_add.php" method="POST">
                     <br>
-                    供應商名稱: <input type="text" name="spName">
+                    供應商名稱: <input type="text" name="name">
                     <br>
-                    供應商電話: <input type="text" name="spPhone">
+                    供應商電話: <input type="text" name="phone_number">
                     <br>
-                    供應商地址: <input type="text" name="spAddress">
+                    供應商地址: <input type="text" name="address">
                     <br>
                     <input type="submit" value="新增">
                 </form>

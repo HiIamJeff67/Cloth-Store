@@ -1,15 +1,15 @@
 <?php
     include "db_conn.php";
     //
-    $spName         = $_GET["spName"];
-    $spPhone        = $_POST["spPhone"];
-    $spAddress      = $_POST["spAddress"];
+    $name         = $_GET["name"];
+    $phone_number        = $_POST["phone_number"];
+    $address      = $_POST["address"];
 
     $query = sprintf(
-        'update supplier set spPhone = "%s", spAddress = "%s"  where spName = "%s"',
-        $spPhone,
-        $spAddress,
-        $spName
+        'update supplier set phone_number = "%s", address = "%s"  where name = "%s"',
+        $phone_number,
+        $address,
+        $name
       );
       echo $query . '<br>';
     $stmt = $db->query($query);

@@ -269,14 +269,14 @@
             <div class="col-sm-10">
                 <?php
                     include "db_conn.php";
-                    $spName = $_GET["spName"];
-                    $query = ("SELECT * FROM supplier WHERE spName = '".$spName."'");
+                    $name = $_GET["name"];
+                    $query = ("SELECT * FROM supplier WHERE name = '".$name."'");
                     if ($stmt = $db->query($query)) {
                         $result = mysqli_fetch_object($stmt);
-                        echo "<br>供應商名稱: " . $result->spName . "<br>";
-                        echo "<form action=supply_mdysave.php?spName=".$result->spName." method=POST>";
-                        echo "供應商電話: <input type=text name=spPhone value=".$result->spPhone."><br>";
-                        echo "供應商地址: <input type=text name=spAddress value=".$result->spAddress."><br>";
+                        echo "<br>供應商名稱: " . $result->name . "<br>";
+                        echo "<form action=supply_mdysave.php?name=".$result->name." method=POST>";
+                        echo "供應商電話: <input type=text name=phone_number value=".$result->phone_number."><br>";
+                        echo "供應商地址: <input type=text name=address value=".$result->address."><br>";
                         echo "<input type=submit value=更改></form>";
                     }
                 ?>
