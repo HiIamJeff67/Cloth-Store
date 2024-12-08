@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<title>服裝店</title>
+<title>服裝坊</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -211,7 +211,7 @@
 
 <body>
     <div class="container-fluid" style="background-color: pink;">
-        <h1 style="font-size: 45px;"><strong><span style="left: 50%;position: relative;">服裝店</span></strong></h1>
+        <h1 style="font-size: 45px;"><strong><span style="left: 50%;position: relative;">服裝坊</span></strong></h1>
         <img src="logo.jpg" class="home_img" style="z-index: 1;">
     </div>
 
@@ -241,7 +241,7 @@
                     </li>
                     <li class="dropdown">
                         <a href="store.php" style="padding:0;">
-                            <p class="y">服裝店</p>
+                            <p class="y">店家</p>
                         </a>
                     </li>
                     <li class="dropdown">
