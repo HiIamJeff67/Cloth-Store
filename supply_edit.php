@@ -1,7 +1,7 @@
-﻿<!<!doctype html>
+<!doctype html>
 <html lang="en">
 <title>服裝坊</title>
-<meta charset="utf-8">  
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -131,13 +131,11 @@
 </head>
 
 <body>
-    <!-- 頂部標題 -->
     <div class="container-fluid" style="background-color: lightblue;">
         <h1 style="font-size: 45px;"><strong><span style="left: 50%;position: relative;">服裝坊</span></strong></h1>
         <img src="fashion_logo.jpg" class="home_img" style="z-index: 1;">
     </div>
-
-    <!-- 左側目錄選單 -->
+    <!--左邊目錄選單-->
     <div class="container-fluid">
         <div class="row content">
             <div class="col-sm-2" style="position:relative;padding:0;height:100%;width: 150px;background-color:lightblue;">
@@ -174,8 +172,7 @@
                     </li>
                 </ul>
             </div>
-
-            <!-- 右側主內容 -->
+            <!--主內容-->
             <div class="col-sm-10">
                 <br />
                 <table style="background-color: black;">
@@ -195,17 +192,25 @@
                         echo "<td>$result->spName</td>";
                         echo "<td>$result->spPhone</td>";
                         echo "<td>$result->spAddress</td>";
+                        echo '<td align="center"><form method="POST" action="supply_del.php?spName=' . $result->spName . '"><input type="submit" value="刪除"></form></td>';
+                        echo '<td align="center"><form method="POST" action="supply_mdy.php?spName=' . $result->spName . '"><input type="submit" value="修改"></form></td>';
                         echo "</tr>";
                     }
                     echo "</table>";
                 }
                 ?>
-                <a href="supply_edit.php" style="position:absolute;right: 10%;background-color: rgb(255, 238, 0);border-radius: 10px;border: 1px solid;">
-                    編輯
-                </a>
+                <form action="supply_add.php" method="POST">
+                    <br>
+                    供應商名稱: <input type="text" name="spName">
+                    <br>
+                    供應商電話: <input type="text" name="spPhone">
+                    <br>
+                    供應商地址: <input type="text" name="spAddress">
+                    <br>
+                    <input type="submit" value="新增">
+                </form>
             </div>
         </div>
     </div>
 </body>
-
 </html>
