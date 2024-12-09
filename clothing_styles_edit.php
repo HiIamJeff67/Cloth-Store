@@ -303,7 +303,7 @@
     <br>
     <?php
         include "db_conn.php";
-        $query2 = ("SELECT * FROM clothing_info");
+        $query2 = ("SELECT * FROM cloth");
         if($stmt2 = $db->query($query2)){
             while($result2 = mysqli_fetch_object($stmt2)){
                 echo "<label>";

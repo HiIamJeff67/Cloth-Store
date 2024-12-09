@@ -12,7 +12,7 @@
     // 創建多個tables
     $errors = [];
     // ClothStyleTable 創建服裝風格
-    $ClothStyleTable = "CREATE TABLE ClothStyle (
+    $ClothStyleTable = "CREATE TABLE Clothing_Style (
         id CHAR(6) NOT NULL,
         name VARCHAR(15) NOT NULL, 
         description VARCHAR(30) ,
@@ -46,12 +46,12 @@
         FOREIGN KEY(supplier_name) REFERENCES Supplier(name) ON DELETE CASCADE ON UPDATE CASCADE
     )";
     // ClothesToSuppliers 創建衣服對應到
-    $ClothesToClothStyles = "CREATE TABLE ClothesToClothStyles (
+    $Mending = "CREATE TABLE Mending (
         cloth_id CHAR(6) NOT NULL,
         cloth_style_id CHAR(6) NOT NULL,
         PRIMARY KEY (cloth_id, cloth_style_id),
         FOREIGN KEY(cloth_id) REFERENCES Cloth(id) ON DELETE CASCADE ON UPDATE CASCADE,
-        FOREIGN KEY(cloth_style_id) REFERENCES ClothStyle(id) ON DELETE CASCADE ON UPDATE CASCADE
+        FOREIGN KEY(cloth_style_id) REFERENCES Clothing_Style(id) ON DELETE CASCADE ON UPDATE CASCADE
     )";
     $tables = [$ClothStyleTable, $StoreTable, $SupplierTable, $ClothTable, $ClothesToSuppliers];
     foreach($tables as $k => $sql){

@@ -185,10 +185,10 @@
                 </table>
                 <?php
                 include "db_conn.php";
-                $query = ("SELECT dclothing_style.id, clothing_style.name, clothing_style.description, clothing_info.name AS source 
+                $query = ("SELECT clothing_style.id, clothing_style.name, clothing_style.description, clothing.name AS source 
                            FROM clothing_style 
-                           LEFT JOIN (mending NATURAL JOIN drink) 
-                           ON dclothing_style.id = mending.id 
+                           LEFT JOIN (mending NATURAL JOIN cloth) 
+                           ON clothing_style.id = mending.id 
                            ORDER BY clothing_style.id");
                 if ($stmt = $db->query($query)) {
                     echo "<table border='1'>";
