@@ -4,7 +4,7 @@
         die('請輸入供應商名稱');
     }
     $name         = $_POST["name"];
-    $phone_number        = $_POST["phone_number"];
+    $phone_number = $_POST["phone_number"];
     $address      = $_POST["address"];
 
     $query = ("Insert into `supplier` (`name`,`phone_number`,`address`) values (?,?,?)");

@@ -2,7 +2,7 @@
     include "db_conn.php";
     //
     $name         = $_GET["name"];
-    $phone_number        = $_POST["phone_number"];
+    $phone_number = $_POST["phone_number"];
     $address      = $_POST["address"];
 
     $query = sprintf(
