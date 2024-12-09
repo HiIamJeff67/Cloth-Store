@@ -2,7 +2,7 @@
     include "db_conn.php";
     $id = $_GET['id'];
     
-    $stmt = $db->prepare("DELETE FROM clothing_info WHERE id=?");
+    $stmt = $db->prepare("DELETE FROM cloth WHERE id=?");
     $stmt->bind_param("s", $id);
     $stmt->execute();
     

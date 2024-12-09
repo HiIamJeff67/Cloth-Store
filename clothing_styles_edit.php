@@ -277,7 +277,7 @@
     </table>
     <?php
         include "db_conn.php";
-        $query = ("SELECT * FROM clothing_style");
+        $query = ("SELECT * FROM clothingstyle");
         if($stmt = $db->query($query)){
             echo "<table border = '1'>";
             while($result = mysqli_fetch_object($stmt)){

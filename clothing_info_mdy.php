@@ -270,14 +270,14 @@
     <?php
         include "db_conn.php";
         $id = $_GET['id'];
-        $query = ("SELECT * FROM clothing_info WHERE id =".$id);
+        $query = ("SELECT * FROM cloth WHERE id =".$id);
         if($stmt = $db->query($query)){
             $result = mysqli_fetch_object($stmt);
             echo "<form action=clothing_info_mdysave.php?id=".$result->id." method=POST>";
             echo "<br>服裝編號: ".$result->id."<br>";
             echo "服裝名稱: <input type=text name=name value=".$result->name."><br>";
             echo "服裝描述: <input type=text name=description value=".$result->description."><br>";
-            echo "服裝價錢: <input type=number name=price value=".$result->Price."><br>";
+            echo "服裝價錢: <input type=number name=price value=".$result->price."><br>";
             echo "商家名稱: ";
             echo '<select name=store_name>';
             $query2 = ("SELECT * FROM store");

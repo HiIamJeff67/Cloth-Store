@@ -189,7 +189,7 @@
         include "db_conn.php";
 
         // 修改SQL語法
-        $query = ("SELECT * FROM clothing_info");
+        $query = ("SELECT * FROM cloth");
 
         if($stmt = $db->query($query)){
             echo "<table border='1'>";
@@ -198,7 +198,7 @@
                 echo "<td>".$result->id."</td>";
                 echo "<td>".$result->name."</td>";
                 echo "<td>".$result->description."</td>";
-                echo "<td>".$result->Price."</td>";
+                echo "<td>".$result->price."</td>";
                 echo "<td>".$result->store_name."</td>";
                 echo "<td>".$result->supplier_name."</td>";
                 echo "</tr>";

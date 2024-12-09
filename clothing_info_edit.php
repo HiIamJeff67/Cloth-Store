@@ -280,7 +280,7 @@
     </table>
     <?php
         include "db_conn.php";
-        $query = ("SELECT * FROM clothing_info");
+        $query = ("SELECT * FROM cloth");
         if($stmt = $db->query($query)){
             echo "<table border = '1'>";
             while($result = mysqli_fetch_object($stmt)){
@@ -288,7 +288,7 @@
                 echo "<td>".$result->id."</td>";
                 echo "<td>".$result->name."</td>";
                 echo "<td>".$result->description."</td>";
-                echo "<td>".$result->Price."</td>";
+                echo "<td>".$result->price."</td>";
                 echo "<td>".$result->store_name."</td>";
                 echo "<td>".$result->supplier_name."</td>";
                 echo '<td align="center"><form method="POST" action="clothing_info_del.php?id=' . $result->id . '"><input type="submit" value="刪除"></form></td>';

@@ -7,7 +7,7 @@
 
     // 更新 clothing_style 資料表中的 name 和 description 欄位
     $query = sprintf(
-        'UPDATE clothing_style SET name = "%s", description = "%s" WHERE id = "%s"',
+        'UPDATE clothingstyle SET name = "%s", description = "%s" WHERE id = "%s"',
         $name,
         $description,
         $id

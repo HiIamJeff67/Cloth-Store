@@ -9,7 +9,7 @@
     $supplier_name  = $_POST["supplier_name"];
 
     $query = sprintf(
-        'UPDATE clothing_info SET name = "%s", description = "%s", Price = "%d", store_name = "%s", supplier_name = "%s" WHERE id = "%s"',
+        'UPDATE cloth SET name = "%s", description = "%s", price = "%d", store_name = "%s", supplier_name = "%s" WHERE id = "%s"',
         $name,
         $description,
         $price,

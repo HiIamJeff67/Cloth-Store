@@ -273,7 +273,7 @@
 
         $id = $_GET['id'];
 
-        $query = ("SELECT * FROM clothing_style WHERE id =".$id);
+        $query = ("SELECT * FROM clothingstyle WHERE id =".$id);
         if($stmt = $db->query($query)){
             $result = mysqli_fetch_object($stmt);
 
@@ -282,7 +282,7 @@
             echo "服裝名稱: <input type='text' name='name' value='".$result->name."'><br>";
             echo "服裝描述: <input type='text' name='description' value='".$result->description."'><br>";
 
-            $query2 = ("SELECT * FROM clothing_info");
+            $query2 = ("SELECT * FROM cloth");
             if($stmt2 = $db->query($query2)){
                 while($result2 = mysqli_fetch_object($stmt2)){
                     echo "<label>";
