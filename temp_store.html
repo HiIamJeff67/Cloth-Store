@@ -263,22 +263,7 @@
                     </tr>
                 </table>
 
-                <?php
-                    include "db_conn.php";
-                    $query = ("Select * From store");
-                    if($stmt = $db->query($query)){
-                        // echo "<table border = '1'>";
-                        while($result=mysqli_fetch_object($stmt)){
-                            echo '<tr class="data-row">';
-                            echo "<td>$result->name</td>";
-                            echo "<td>$result->phone_number</td>";
-                            echo "<td>$result->work_time</td>";
-                            echo "<td>$result->address</td>";
-                            echo "</tr>";
-                        }
-                        // echo "</table>";
-                    }
-                ?>
+                
 
                 <a href = "store_edit.php"  style="position:absolute;right: 10%;background-color: rgb(255, 238, 0);border-radius: 10px;border: 1px solid;">
                     編輯

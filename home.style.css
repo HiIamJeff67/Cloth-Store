@@ -32,7 +32,7 @@ body {
 .header-right {
     color: white;
     position: relative;
-    width: 30%;
+    width: 20%;
     left: 0;
     padding-left: 15px;
     font-weight: 600;
@@ -42,21 +42,24 @@ body {
     font-weight: bold;
 }
 .title {
-    width: 30%;
+    font-family: "Playwrite HR", cursive;
+    width: 60%;
     color: white;
     font-size: 70px;
+    font-weight: 200;
     text-align: center;
 }
 .header-left {
-    width: 30%;
+    width: 20%;
     position: relative;
     display: flex;
     justify-content: right;
     align-items: center;
+    padding-right: 15px;
     gap: 5%;
 }
 .header-left-icon {
-    width: 75px;
+    width: 60px;
     border: 2px solid white;
     border-radius: 50%;
     background-color: white;
@@ -66,12 +69,53 @@ body {
     background-color: black;
     width: 100%;
     height: 100%;
-    margin-top: 8%;
+    margin-top: 120px;
 }
-
 .content {
-    border: 2px solid orange;
+    /* border: 2px solid orange; */
     color: white;
+    display: flex;
+    justify-content: center;
+}
+.data-table {
+    border: 2px solid white;
+    width: 90%;
+}
+.data-column-names {
+    height: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+.data-column-names .table-col {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 5px 0px 5px 0px solid black;
+}
+.data-row {
+    min-height: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+.data-row .table-sub-col {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    border: 5px 0px 5px 0px solid white;
 }
 
 .navbar {
@@ -88,7 +132,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 5%;
-    width: 30%;
+    width: 400px;
     border-radius: 15px;
     border: 2px solid white;
     /* background-color: hsl(0, 0%, 15%); */
@@ -103,10 +147,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: .8s;
+}
+.nav-button:hover {
+    background-color: black;
+    fill: white;
 }
 .cloth-icon, .cloth-info-icon, .supplier-icon, .store-icon {
     border-radius: 50%;
     width: 50px;
+    color: white;
 }
 
 @media (max-width: 1200px) {
@@ -122,7 +172,10 @@ body {
 }
 
 @media (max-width: 700px) {
-    .header-right, .header-left-link {
+    .title {
+        width: 100%;
+    }
+    .header-right, .header-left {
         display: none;
     }
 }
