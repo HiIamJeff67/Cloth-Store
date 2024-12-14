@@ -36,43 +36,37 @@
     </div>
     <div class="container">
         <div class="hide editor-container editor-add" id="add-editor" onclick="handleAddInputFieldOnClose()"></div>
-        <form class=" hide editor add-editor-form" id="add-editor-form" action="">
-            <h2 class="add-editor-title">新增一筆資料</h2>
-            <input placeholder="編號" class="add-editor-input add-id-input" type="text" name="id">
-            <input placeholder="名稱" class="add-editor-input add-name-input" type="text" name="name">
-            <input placeholder="描述" class="add-editor-input add-description-input" type="text" name="description">
-            <input placeholder="價錢" class="add-editor-input add-price-input" type="number" name="price">
-            <select class="add-select" name="">
-                <option value="123">123</option>
-                <option value="123">123</option>
-                <option value="123">123</option>
-            </select>
-            <select class="add-select" name="">
-            </select>
-            <div class="add-editor-buttons">
-                <input class="add-editor-submit-button" type="submit" value="新增">
-                <button class="add-editor-cancel-button" onclick="handleAddInputFieldOnClose()">取消</button>
-            </div>
-        </form>
+        <div>
+            <form class=" hide editor add-editor-form" id="add-editor-form" method="POST" action="store_add.php">
+                <h2 class="add-editor-title">新增一筆資料</h2>
+                <input placeholder="名稱" class="add-editor-input add-id-input" type="text" name="name">
+                <input placeholder="電話" class="add-editor-input add-name-input" type="text" name="phone_number">
+                <input placeholder="工作時間" class="add-editor-input add-description-input" type="text" name="work_time">
+                <input placeholder="地址" class="add-editor-input add-price-input" type="text" name="address">
+                <div class="add-editor-buttons">
+                    <input class="add-editor-submit-button" type="submit" value="新增">
+                    <button class="add-editor-cancel-button" onclick="handleAddInputFieldOnClose()">取消</button>
+                </div>
+            </form>
+        </div>
         <div class="hide editor-container editor-modify" id="modify-editor" onclick="handleModifyInputFieldOnClose()"></div>
-        <form class="hide editor modify-editor-form" id="modify-editor-form" action="">
-            <h2 class="add-editor-title">修改一筆資料</h2>
-            <input class="add-editor-input add-id-input" type="text" name="id">
-            <input class="add-editor-input add-name-input" type="text" name="name">
-            <input class="add-editor-input add-description-input" type="text" name="description">
-            <input class="add-editor-input add-price-input" type="number" name="price">
-            <select class="add-select" name="">
-                <option value="123">123</option>
-                <option value="123">123</option>
-                <option value="123">123</option>
-            </select>
-            <select class="add-select" name="">
-            </select>
-            <div class="add-editor-buttons">
-                <input class="add-editor-submit-button" type="submit" value="新增">
-                <button class="add-editor-cancel-button" onclick="handleAddInputFieldOnClose()">取消</button>
-            </div>
-        </form>
+        <div>
+            <form class="hide editor modify-editor-form" id="modify-editor-form" method="POST" action="store_mdy.php">
+                <h2 class="modify-editor-title">新增一筆資料</h2>
+                <input placeholder="名稱" class="modify-editor-input modify-id-input" type="text" name="name">
+                <input placeholder="電話" class="modify-editor-input modify-name-input" type="text" name="phone_number">
+                <input placeholder="工作時間" class="modify-editor-input modify-description-input" type="text" name="work_time">
+                <input placeholder="地址" class="modify-editor-input modify-price-input" type="text" name="address">
+                <div class="modify-editor-buttons">
+                    <input class="modify-editor-submit-button" type="submit" value="新增">
+                    <button class="modify-editor-cancel-button" onclick="handleAddInputFieldOnClose()">取消</button>
+                </div>
+                <div class="add-editor-buttons">
+                    <input class="add-editor-submit-button" type="submit" value="新增">
+                    <button class="add-editor-cancel-button" onclick="handleAddInputFieldOnClose()">取消</button>
+                </div>
+            </form>
+        </div>
         <div class="content">
             <div class="content-header">
                 <button class="add-button" onclick="handleAddInputFieldOnOpen()">
@@ -159,6 +153,18 @@
         </div>
     </div>
     <script>
+        function handleModifyInputFieldOnOpen(name, phoneNumber, workTime, address) {
+            handleModifyInputFieldOnOpen();
+            modifyForm.classList.remove('hide');
+
+            document.querySelector('.modify-editor-name-input').value = name;
+            document.querySelector('.modify-editor-phone-input').value = phoneNumber;
+            document.querySelector('.modify-editor-worktime-input').value = workTime;
+            document.querySelector('.modify-editor-address-input').value = address;
+
+            modifyForm.scrollIntoView({ behavior: 'smooth' });
+        }
+
         const handleAddInputFieldOnOpen = () => {
             showInputElement("add-editor");
             showInputElement("add-editor-form");

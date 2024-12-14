@@ -16,13 +16,14 @@ body {
     height: 100%;
     z-index: 2000;
     top: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.95);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .editor {
     position: absolute;
+    background-color: hsl(0, 0%, 2%);
     border: 2px solid white;
     border-radius: 25px;
     left: 25%;
@@ -36,11 +37,11 @@ body {
     align-items: center;
     outline: none;
 }
-.add-editor-title {
+.add-editor-title, .modify-editor-title {
     color: white;
     user-select: none;
 }
-.add-editor-input {
+.add-editor-input, .modify-editor-input {
     border: none;
     border-bottom: 2px solid white;
     background-color: rgba(255, 255, 255, 0.2);
@@ -57,7 +58,7 @@ body {
 .add-editor-input:focus {
     background-color: rgba(255, 255, 255, 0.5);
 }
-.add-select {
+.add-select, .modify-select {
     border: none;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 5px 5px 0px 0px;
@@ -71,14 +72,15 @@ body {
     font-weight: bold;
     transition: .5s;
 }
-.add-editor-buttons {
+.add-editor-buttons, .modify-editor-buttons {
     width: 80%;
     display: flex;
     justify-content: center;
     gap: 15px;
     align-items: center;
 }
-.add-editor-submit-button, .add-editor-cancel-button {
+.add-editor-submit-button, .add-editor-cancel-button, 
+.modify-editor-submit-button, .modify-editor-cancel-button {
     border: none;
     border: 2px solid transparent;
     color: black;
@@ -349,7 +351,7 @@ body {
 }
 
 .hide {
-    display: none;
+    display: none !important;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
