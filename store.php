@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+HR:wght@100..400&family=SUSE:wght@100..800&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="./home.style.css">
+    <link rel="stylesheet" href="./store.style.css">
     <title>Cloth Store</title>
 </head>
 <body>
@@ -35,24 +35,87 @@
         </div>
     </div>
     <div class="container">
+        <div class="hide editor-container editor-add" id="add-editor" onclick="handleAddInputFieldOnClose()"></div>
+        <div>
+            <form class=" hide editor add-editor-form" id="add-editor-form" method="POST" action="store_add.php">
+                <h2 class="add-editor-title">新增一筆資料</h2>
+                <input placeholder="名稱" class="add-editor-input add-id-input" type="text" name="name">
+                <input placeholder="電話" class="add-editor-input add-name-input" type="text" name="phone_number">
+                <input placeholder="工作時間" class="add-editor-input add-description-input" type="text" name="work_time">
+                <input placeholder="地址" class="add-editor-input add-price-input" type="text" name="address">
+                <div class="add-editor-buttons">
+                    <input class="add-editor-submit-button" type="submit" value="新增">
+                    <button class="add-editor-cancel-button" onclick="handleAddInputFieldOnClose()">取消</button>
+                </div>
+            </form>
+        </div>
+        <div class="hide editor-container editor-modify" id="modify-editor" onclick="handleModifyInputFieldOnClose()"></div>
+        <div>
+            <?php
+                include "db_conn.php";
+                $name = $_GET['name'];
+                $query = ("SELECT * FROM store WHERE name =". $name);
+                if ($stmt = $db->query($query)) {
+                    $result=mysqli_fetch_object($stmt);
+                    
+                    echo "<form class='hide editor modify-editor-form' id='modify-editor-form' method='POST' action='store_mdysave.php?id='".$result->id.">";
+                    echo '<h2 class="add-editor-title">修改一筆資料</h2>';
+                    echo "<input class='add-editor-input add-id-input' type='text' name='name' value='".$result->name."'>";
+                    echo "<input class='add-editor-input add-name-input' type='text' name='phone_number' value='".$reslt->phone_number."'>";
+                    echo "<input class='add-editor-input add-description-input' type='text' name='work_time' value='".$result->work_time."'>";
+                    echo "<input class='add-editor-input add-price-input' type='number' name='address' value='".$result->address."'>";
+                    echo "</form>";
+                }
+            ?>
+            <div class="add-editor-buttons">
+                <input class="add-editor-submit-button" type="submit" value="新增">
+                <button class="add-editor-cancel-button" onclick="handleAddInputFieldOnClose()">取消</button>
+            </div>
+        </div>
         <div class="content">
+            <div class="content-header">
+                <button class="add-button" onclick="handleAddInputFieldOnOpen()">
+                    <svg class="add-button-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="#1C274C" stroke-width="1.5"/>
+                        <path d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <p class="add-button-title">新增</p>
+                </button>
+            </div>
             <table class="data-table">
                 <tr class="data-column-names">
                     <th class="table-col table-col-1">商店名稱</th>
                     <th class="table-col table-col-2">商店電話</th>
                     <th class="table-col table-col-3">營業時間</th>
                     <th class="table-col table-col-4">商店地址</th>
+                    <th class="table-option-col table-col-5">選項</th>
                 </tr>
                 <?php
                     include "db_conn.php";
-                    $query = ("Select * From store");
-                    if($stmt = $db->query($query)){
-                        while($result=mysqli_fetch_object($stmt)){
+                    $query = ("SELECT * FROM store;");
+                    if ($stmt = $db->query($query)) {
+                        while ($reslt->mysqli_fetch_object($stmt)) {
                             echo "<tr class='data-row'>";
-                            echo "<td class='table-sub-col'>$result->name</td>";
-                            echo "<td class='table-sub-col'>$result->phone_number</td>";
-                            echo "<td class='table-sub-col'>$result->work_time</td>";
-                            echo "<td class='table-sub-col'>$result->address</td>";
+                            echo "<td class='table-sub-col table-col-1'>$result->name</td>";
+                            echo "<td class='table-sub-col table-col-1'>$result->phone_number</td>";
+                            echo "<td class='table-sub-col table-col-1'>$result->work_time</td>";
+                            echo "<td class='table-sub-col table-col-1'>$result->address</td>";
+                            echo '
+                                    <td class="table-sub-option-col">
+                                        <form class="table-option-form" method="POST" action="store_del.php?name=' . $result->name . '">
+                                            <svg class="delete-button-icon" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24">
+                                                <path d="M 10.806641 2 C 10.289641 2 9.7956875 2.2043125 9.4296875 2.5703125 L 9 3 L 4 3 A 1.0001 1.0001 0 1 0 4 5 L 20 5 A 1.0001 1.0001 0 1 0 20 3 L 15 3 L 14.570312 2.5703125 C 14.205312 2.2043125 13.710359 2 13.193359 2 L 10.806641 2 z M 4.3652344 7 L 5.8925781 20.263672 C 6.0245781 21.253672 6.877 22 7.875 22 L 16.123047 22 C 17.121047 22 17.974422 21.254859 18.107422 20.255859 L 19.634766 7 L 4.3652344 7 z"/>
+                                            </svg>
+                                            <input class="table-option-submit-button" type="submit" value="刪除">
+                                        </form>
+                                        <form class="table-option-form" method="POST" action="store.php?name=' . $result->name . '">
+                                            <svg class="modify-button-icon" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50">
+                                                <path d="M 43.125 2 C 41.878906 2 40.636719 2.488281 39.6875 3.4375 L 38.875 4.25 L 45.75 11.125 C 45.746094 11.128906 46.5625 10.3125 46.5625 10.3125 C 48.464844 8.410156 48.460938 5.335938 46.5625 3.4375 C 45.609375 2.488281 44.371094 2 43.125 2 Z M 37.34375 6.03125 C 37.117188 6.0625 36.90625 6.175781 36.75 6.34375 L 4.3125 38.8125 C 4.183594 38.929688 4.085938 39.082031 4.03125 39.25 L 2.03125 46.75 C 1.941406 47.09375 2.042969 47.457031 2.292969 47.707031 C 2.542969 47.957031 2.90625 48.058594 3.25 47.96875 L 10.75 45.96875 C 10.917969 45.914063 11.070313 45.816406 11.1875 45.6875 L 43.65625 13.25 C 44.054688 12.863281 44.058594 12.226563 43.671875 11.828125 C 43.285156 11.429688 42.648438 11.425781 42.25 11.8125 L 9.96875 44.09375 L 5.90625 40.03125 L 38.1875 7.75 C 38.488281 7.460938 38.578125 7.011719 38.410156 6.628906 C 38.242188 6.246094 37.855469 6.007813 37.4375 6.03125 C 37.40625 6.03125 37.375 6.03125 37.34375 6.03125 Z"/>
+                                            </svg>
+                                            <input class="table-option-submit-button" type="submit" value="修改" onclick="handleModifyInputFieldOnOpen()">
+                                        </form>
+                                    </td>"
+                                ';
                             echo "</tr>";
                         }
                     }
@@ -62,6 +125,13 @@
     </div>
     <div class="navbar">
         <div class="navbar-container">
+            <a href="home.html">
+                <div class="nav-button home-nav-button">
+                    <svg class="home-icon" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 64 64">
+                        <path d="M 32 3 L 1 28 L 1.4921875 28.654297 C 2.8591875 30.477297 5.4694688 30.791703 7.2304688 29.345703 L 32 9 L 56.769531 29.345703 C 58.530531 30.791703 61.140812 30.477297 62.507812 28.654297 L 63 28 L 54 20.742188 L 54 8 L 45 8 L 45 13.484375 L 32 3 z M 32 13 L 8 32 L 8 56 L 56 56 L 56 35 L 32 13 z M 26 34 L 38 34 L 38 52 L 26 52 L 26 34 z"/>
+                    </svg>
+                </div>
+            </a>
             <a href="">
                 <div class="nav-button cloth-nav-button">
                     <svg class="cloth-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" >
@@ -97,5 +167,42 @@
             </a>
         </div>
     </div>
+    <script>
+        const handleAddInputFieldOnOpen = () => {
+            showInputElement("add-editor");
+            showInputElement("add-editor-form");
+            hideInputElement("modify-editor");
+            hideInputElement("modify-editor-form");
+        }
+
+        const handleAddInputFieldOnClose = (event) => {
+            hideInputElement("add-editor");
+            hideInputElement("add-editor-form");
+        }
+
+        const handleModifyInputFieldOnOpen = () => {
+            showInputElement("modify-editor");
+            showInputElement("modify-editor-form");
+            hideInputElement("add-editor");
+            hideInputElement("add-editor-form");
+        }
+
+        const handleModifyInputFieldOnClose = () => {
+            hideInputElement("modify-editor");
+            hideInputElement("modify-editor-form");
+        }
+
+        const showInputElement = function(elementId) {
+            event.preventDefault();
+            const inputElement = document.getElementById(elementId);
+            inputElement.classList.remove("hide");
+        }
+
+        const hideInputElement = function(elementId) {
+            event.preventDefault();
+            const inputElement = document.getElementById(elementId);
+            inputElement.classList.add("hide");
+        }
+    </script>
 </body>
 </html>
