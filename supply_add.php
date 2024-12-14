@@ -12,5 +12,5 @@
     $stmt->bind_param("sss",$name,$phone_number,$address);
     $stmt->execute();
 
-    header('Location: supply_edit.php');
+    header('Location: supply.php');
 ?>

@@ -51,14 +51,14 @@
         </div>
         <div class="hide editor-container editor-modify" id="modify-editor" onclick="handleModifyInputFieldOnClose()"></div>
         <div>
-            <form class="hide editor modify-editor-form" id="modify-editor-form" method="POST" action="store_mdy.php">
-                <h2 class="modify-editor-title">新增一筆資料</h2>
+            <form class="hide editor modify-editor-form" id="modify-editor-form" method="POST" action="store_mdysave.php">
+                <h2 class="modify-editor-title">修改一筆資料</h2>
                 <input placeholder="名稱" class="modify-editor-input modify-name-input" type="text" name="name">
                 <input placeholder="電話" class="modify-editor-input modify-phoneNumber-input" type="text" name="phone_number">
                 <input placeholder="工作時間" class="modify-editor-input modify-workTime-input" type="text" name="work_time">
                 <input placeholder="地址" class="modify-editor-input modify-address-input" type="text" name="address">
                 <div class="modify-editor-buttons">
-                    <input class="modify-editor-submit-button" type="submit" value="新增">
+                    <input class="modify-editor-submit-button" type="submit" value="修改">
                     <button class="modify-editor-cancel-button" onclick="handleAddInputFieldOnClose()">取消</button>
                 </div>
             </form>

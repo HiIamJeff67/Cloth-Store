@@ -18,5 +18,5 @@
     if (!$stmt) {
         die($db->error);
     }
-    header('Location: store_edit.php');
+    header('Location: store.php');
 ?>

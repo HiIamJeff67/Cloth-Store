@@ -7,5 +7,5 @@
     $stmt->execute();
     
 
-    header('Location: clothing_style_edit.php');
+    header('Location: clothing_style.php');
 ?>

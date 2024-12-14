@@ -7,5 +7,5 @@
     $stmt->execute();
     
 
-    header('Location: supply_edit.php');
+    header('Location: supply.php');
 ?>

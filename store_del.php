@@ -7,5 +7,5 @@
     $stmt->execute();
     
 
-    header('Location: store_edit.php');
+    header('Location: store.php');
 ?>

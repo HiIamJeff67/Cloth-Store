@@ -16,5 +16,5 @@
     if (!$stmt) {
         die($db->error);
     }
-    header('Location: supply_edit.php');
+    header('Location: supply.php');
 ?>

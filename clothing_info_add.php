@@ -19,5 +19,5 @@
     
     $stmt->execute();
 
-    header('Location: clothing_info_edit.php');
+    header('Location: clothing_info.php');
 ?>

@@ -20,5 +20,5 @@
         $stmt_tmp->bind_param("ss",$id,$value);
         $stmt_tmp->execute();
     }
-    header('Location: clothing_style_edit.php');
+    header('Location: clothing_style.php');
 ?>
