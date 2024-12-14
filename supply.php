@@ -1,4 +1,4 @@
-<!<!doctype html>
+<!doctype html>
 <html lang="en">
 <title>服裝坊</title>
 <meta charset="utf-8">  
@@ -192,7 +192,7 @@
                     echo "<table border='1'>";
                     while ($result = mysqli_fetch_object($stmt)) {
                         echo "<tr>";
-                        echo "<td>$result->name</td>";
+                        echo "<td class='table-sub-col'> $result->name </td>";
                         echo "<td>$result->phone_number</td>";
                         echo "<td>$result->address</td>";
                         echo "</tr>";

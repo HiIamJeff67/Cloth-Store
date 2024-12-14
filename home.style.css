@@ -135,7 +135,7 @@ body {
     width: 400px;
     border-radius: 15px;
     border: 2px solid white;
-    /* background-color: hsl(0, 0%, 15%); */
+    background-color: hsl(0, 0%, 15%);
 }
 .nav-button {
     position: relative;
