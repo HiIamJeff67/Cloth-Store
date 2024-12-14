@@ -1,8 +1,3 @@
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,25 +47,16 @@
                     include "db_conn.php";
                     $query = ("Select * From store");
                     if($stmt = $db->query($query)){
-                        // echo "<table border = '1'>";
                         while($result=mysqli_fetch_object($stmt)){
                             echo "<tr class='data-row'>";
-                            echo "<td class='table-sub-col table-col-1'>$result->name</td>";
-                            echo "<td class='table-sub-col table-col-1'>$result->phone_number</td>";
-                            echo "<td class='table-sub-col table-col-1'>$result->work_time</td>";
-                            echo "<td class='table-sub-col table-col-1'>$result->address</td>";
+                            echo "<td class='table-sub-col'>$result->name</td>";
+                            echo "<td class='table-sub-col'>$result->phone_number</td>";
+                            echo "<td class='table-sub-col'>$result->work_time</td>";
+                            echo "<td class='table-sub-col'>$result->address</td>";
                             echo "</tr>";
                         }
-                        // echo "</table>";
                     }
                 ?>
-
-                <tr class="data-row">
-                    <th class="table-sub-col table-col-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, odit.</th>
-                    <th class="table-sub-col table-col-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis deleniti culpa dicta. Doloremque unde necessitatibus hic culpa incidunt corporis amet.</th>
-                    <th class="table-sub-col table-col-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam repellendus facilis accusamus nesciunt reiciendis saepe quos adipisci obcaecati placeat, debitis sed velit minus molestiae excepturi porro laborum earum. Asperiores, molestias.</th>
-                    <th class="table-sub-col table-col-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, voluptas.</th>
-                </tr>
             </table>
         </div>
     </div>

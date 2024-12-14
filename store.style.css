@@ -10,6 +10,98 @@ body {
     height: 100vh;
 }
 
+.editor-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    top: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.editor {
+    position: absolute;
+    border: 2px solid white;
+    border-radius: 25px;
+    left: 25%;
+    top: 25%;
+    width: 50%;
+    height: 700px;
+    z-index: 3000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    outline: none;
+}
+.add-editor-title {
+    color: white;
+    user-select: none;
+}
+.add-editor-input {
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px 5px 0px 0px;
+    width: 75%;
+    height: 10%;
+    outline: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 15px;
+    transition: .5s;
+}
+.add-editor-input:focus {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.add-select {
+    border: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px 5px 0px 0px;
+    border: 1px solid grey;
+    width: 75%;
+    height: 8%;
+    outline: none;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    transition: .5s;
+}
+.add-editor-buttons {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+}
+.add-editor-submit-button, .add-editor-cancel-button {
+    border: none;
+    border: 2px solid transparent;
+    color: black;
+    background-color: white;
+    border-radius: 12px;
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+.add-editor-submit-button:hover {
+    border: 2px solid white;
+    color: white;
+    background-color: hsl(120, 100%, 35%);
+}
+.add-editor-cancel-button:hover {
+    border: 2px solid white;
+    color: white;
+    background-color: hsl(0, 100%, 40%);
+}
+
 .header {
     position: fixed;
     top: 0;
@@ -67,10 +159,11 @@ body {
 }
 
 .container {
+    position: relative;
     background-color: black;
     width: 100%;
     height: 100%;
-    margin-top: 120px;
+    padding-top: 120px;
 }
 .content {
     /* border: 2px solid orange; */
@@ -119,7 +212,8 @@ body {
     font-weight: bold;
 }
 .data-table {
-    border: 2px solid white;
+    border-radius: 15px 15px 0px 0px;
+    overflow: hidden;
     width: 90%;
 }
 .data-column-names {
@@ -141,7 +235,7 @@ body {
     border: 5px 0px 5px 0px solid black;
 }
 .data-column-names .table-option-col {
-    width: 30%;
+    width: 300px;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -151,6 +245,8 @@ body {
 }
 
 .data-row {
+    border: 2px solid white;
+    padding: 5px;
     min-height: 50px;
     display: flex;
     justify-content: space-evenly;
@@ -169,7 +265,7 @@ body {
     border: 5px 0px 5px 0px solid white;
 }
 .data-row .table-sub-option-col {
-    width: 30%;
+    width: 300px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -252,6 +348,20 @@ body {
     color: white;
 }
 
+.hide {
+    display: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 @media (max-width: 1200px) {
     .header-right {
         font-size: 15px;
@@ -265,6 +375,16 @@ body {
 }
 
 @media (max-width: 700px) {
+    .table-option-form {
+        height: 30px;
+    }
+    .delete-button-icon, .modify-button-icon {
+        width: 15px;
+        left: 5px;
+    }
+    .table-option-submit-button {
+        font-size: 14px;
+    }
     .title {
         width: 100%;
     }
