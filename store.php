@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+HR:wght@100..400&family=SUSE:wght@100..800&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="./store.style.css">
+    <link rel="stylesheet" href="./main.style.css">
     <title>Cloth Store</title>
 </head>
 <body>
@@ -51,9 +51,9 @@
         </div>
         <div class="hide editor-container editor-modify" id="modify-editor" onclick="handleModifyInputFieldOnClose()"></div>
         <div>
-            <form class="hide editor modify-editor-form" id="modify-editor-form" method="POST" action="store_mdysave.php">
+            <form class="hide editor modify-editor-form" id="modify-editor-form" method="POST" action="store_mdysave.php?name=">
                 <h2 class="modify-editor-title">修改一筆資料</h2>
-                <input placeholder="名稱" class="modify-editor-input modify-name-input" type="text" name="name">
+                <input placeholder="名稱" class="modify-editor-input modify-name-input" type="text" name="name" readonly>
                 <input placeholder="電話" class="modify-editor-input modify-phoneNumber-input" type="text" name="phone_number">
                 <input placeholder="工作時間" class="modify-editor-input modify-workTime-input" type="text" name="work_time">
                 <input placeholder="地址" class="modify-editor-input modify-address-input" type="text" name="address">
@@ -87,12 +87,12 @@
                     if ($stmt = $db->query($query)) {
                         while ($result = mysqli_fetch_object($stmt)) {
                             echo "<tr class='data-row'>";
-                            echo "<td class='table-sub-col table-col-1'>$result->name</td>";
-                            echo "<td class='table-sub-col table-col-1'>$result->phone_number</td>";
-                            echo "<td class='table-sub-col table-col-1'>$result->work_time</td>";
-                            echo "<td class='table-sub-col table-col-1'>$result->address</td>";
+                            echo "<td class='table-sub-col'>$result->name</td>";
+                            echo "<td class='table-sub-col'>$result->phone_number</td>";
+                            echo "<td class='table-sub-col'>$result->work_time</td>";
+                            echo "<td class='table-sub-col'>$result->address</td>";
                             echo '<td class="table-sub-option-col">';
-                            echo "<form class='table-option-form' method='POST' action='store_del.php?name='".$result->name."'>";
+                            echo "<form class='table-option-form' method='POST' action=store_del.php?name=".$result->name.">";
                             echo '<svg class="delete-button-icon" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24">';
                             echo '<path d="M 10.806641 2 C 10.289641 2 9.7956875 2.2043125 9.4296875 2.5703125 L 9 3 L 4 3 A 1.0001 1.0001 0 1 0 4 5 L 20 5 A 1.0001 1.0001 0 1 0 20 3 L 15 3 L 14.570312 2.5703125 C 14.205312 2.2043125 13.710359 2 13.193359 2 L 10.806641 2 z M 4.3652344 7 L 5.8925781 20.263672 C 6.0245781 21.253672 6.877 22 7.875 22 L 16.123047 22 C 17.121047 22 17.974422 21.254859 18.107422 20.255859 L 19.634766 7 L 4.3652344 7 z"/>';
                             echo '</svg>';
@@ -168,7 +168,8 @@
             document.querySelector('.modify-workTime-input').value = workTime;
             document.querySelector('.modify-address-input').value = address;
 
-            // modifyForm.scrollIntoView({ behavior: 'smooth' });
+            const form = document.getElementById('modify-editor-form');
+            form.action = `store_mdysave.php?name=${encodeURIComponent(name)}`;
         }
 
         const handleAddInputFieldOnOpen = () => {

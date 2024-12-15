@@ -185,7 +185,7 @@
                 </table>
                 <?php
                 include "db_conn.php";
-                $query = ("SELECT clothing_style.id, clothing_style.name, clothing_style.description, clothing.name AS source 
+                $query = ("SELECT clothing_style.id, clothing_style.name, clothing_style.description, cloth.name AS source 
                            FROM clothing_style 
                            LEFT JOIN (mending NATURAL JOIN cloth) 
                            ON clothing_style.id = mending.id 
